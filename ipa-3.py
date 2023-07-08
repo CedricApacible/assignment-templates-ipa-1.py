@@ -42,12 +42,12 @@ def relationship_status(from_member, to_member, social_graph):
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
     
-    if social_graph[from_member]["following"] == to_member and social_graph[to_member]["following"] == from_member:
+    if to_member in social_graph[from_member]["following"] and from_member in social_graph[to_member]["following"]:
         return print ("friends")
-    elif social_graph[from_member]["following"] == to_member:
-        return print("follows " + to_member)
-    elif social_graph[to_member]["following"] == from_member:
-        return print("followed by " + from_member)
+    elif to_member in social_graph[from_member]["following"]:
+        return print("follower of " + from_member)
+    elif from_member in social_graph[to_member]["following"]:
+        return print("followed by " + to_member)
     else:
         return print("no relationship")
 
